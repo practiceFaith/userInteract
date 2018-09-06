@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/animation.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <!--计算rem-->
+    <script>
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 640 * 100 + 'px';
+    </script>
+</head>
+<body>
+<section class="loading" id="loading">
+    <div class="title">
+        <h1>前端培训</h1>
+        <h3>H5场景交互</h3>
+    </div>
+    <div class="progress">
+        <em></em>
+    </div>
+</section>
+<section class="phone" id="phone">
+    <h2>
+        <img src="img/zf_phoneLogo.png" alt="">
+    </h2>
+    <div class="time">00:00</div>
+    <div class="listenBox">
+        <div class="move"></div>
+        <div class="listen"></div>
+    </div>
+    <div class="hangupBox">
+        <div class="hangup"></div>
+    </div>
+    <audio src="audio/bell.mp3" id="listenBell" preload="none" loop></audio>
+    <audio src="audio/say.mp3" id="say" preload="none"></audio>
+</section>
+<section class="message" id="message">
+    <ul class="messageList">
+        <li class="student">
+            毕业了，不等于学习终止了，新的学习任务才刚刚开始。
+            <em></em>
+            <img src="img/zf_messageStudent.png" alt="">
+        </li>
+        <li class="teacher">
+            学无止境，以后你们应该更加的用心学习。
+            <em></em>
+            <img src="img/zf_messageLogo.png" alt="">
+        </li>
+        <li class="student">
+            毕业了，不等于学习终止了，新的学习任务才刚刚开始。
+            <em></em>
+            <img src="img/zf_messageStudent.png" alt="">
+        </li>
+        <li class="student">
+            毕业了，不等于学习终止了，新的学习任务才刚刚开始。
+            <em></em>
+            <img src="img/zf_messageStudent.png" alt="">
+        </li>
+        <li class="student">
+            毕业了，不等于学习终止了，新的学习任务才刚刚开始。
+            <em></em>
+            <img src="img/zf_messageStudent.png" alt="">
+        </li>
+        <li class="student">
+            毕业了，不等于学习终止了，新的学习任务才刚刚开始。
+            <em></em>
+            <img src="img/zf_messageStudent.png" alt="">
+        </li>
+        <li class="teacher">
+            学无止境，以后你们应该更加的用心学习。
+            <em></em>
+            <img src="img/zf_messageLogo.png" alt="">
+        </li>
+        <li class="teacher">
+            学无止境，以后你们应该更加的用心学习。
+            <em></em>
+            <img src="img/zf_messageLogo.png" alt="">
+        </li>
+    </ul>
+    <div class="keyboad">
+        <p class="textBox"></p>
+        <div class="send"></div>
+    </div>
+    <audio src="audio/music.mp3" preload="none" loop id="music"></audio>
+</section>
+<section class="cube" id="cube">
+    <ul class="cubeBox">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <div class="tip"></div>
+</section>
+<section class="swiper" id="swiper">
+    <div class="return"></div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide page1">
+                <dl id="makisu">
+                    <dt>课程大纲</dt>
+                    <dd><em>01</em><a href="">javascript核心基础部分</a></dd>
+                    <dd><em>02</em><a href="">javascript核心基础部分</a></dd>
+                    <dd><em>03</em><a href="">javascript核心基础部分</a></dd>
+                    <dd><em>04</em><a href="">javascript核心基础部分</a></dd>
+                    <dd><em>05</em><a href="">javascript核心基础部分</a></dd>
+                    <dd><em>06</em><a href="">javascript核心基础部分</a></dd>
+                    <dd><em>07</em><a href="">javascript核心基础部分</a></dd>
+                    <dd><em>08</em><a href="">javascript核心基础部分</a></dd>
+                    <dd><em>09</em><a href="">javascript核心基础部分</a></dd>
+                    <dd><em>10</em><a href="">javascript核心基础部分</a></dd>
+                </dl>
+            </div>
+            <div class="swiper-slide page2">
+                <h2>课程体系</h2>
+                <div class="courseBox">
+                    <img src="img/zf_course.png" alt="">
+                    <img src="img/zf_course1.png" alt="">
+                    <img src="img/zf_course2.png" alt="">
+                    <img src="img/zf_course3.png" alt="">
+                    <img src="img/zf_course4.png" alt="">
+                    <img src="img/zf_course5.png" alt="">
+                    <img src="img/zf_course6.png" alt="">
+                </div>
+            </div>
+            <div class="swiper-slide page3">
+                <h2><img src="img/zf_teacherTip.png" alt=""></h2>
+                <ul class="teacherBox">
+                    <li>
+                        <figure>
+                            <img src="img/zf_teacher1.png" alt="">
+                            <figcaption>teacher</figcaption>
+                        </figure>
+                        <p>人民教师伟大而光荣，肩负培育国家栋梁的重任，移风易俗社会安定的先锋。</p>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="img/zf_teacher2.png" alt="">
+                            <figcaption>teacher</figcaption>
+                        </figure>
+                        <p>人民教师伟大而光荣，肩负培育国家栋梁的重任，移风易俗社会安定的先锋。</p>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="img/zf_teacher3.jpg" alt="">
+                            <figcaption>teacher</figcaption>
+                        </figure>
+                        <p>人民教师伟大而光荣，肩负培育国家栋梁的重任，移风易俗社会安定的先锋。</p>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="img/zf_teacher4.png" alt="">
+                            <figcaption>teacher</figcaption>
+                        </figure>
+                        <p>人民教师伟大而光荣，肩负培育国家栋梁的重任，移风易俗社会安定的先锋。</p>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="img/zf_teacher5.png" alt="">
+                            <figcaption>teacher</figcaption>
+                        </figure>
+                        <p>人民教师伟大而光荣，肩负培育国家栋梁的重任，移风易俗社会安定的先锋。</p>
+                    </li>
+                    <li>
+                        <figure>
+                            <img src="img/zf_teacher6.png" alt="">
+                            <figcaption>teacher</figcaption>
+                        </figure>
+                        <p>人民教师伟大而光荣，肩负培育国家栋梁的重任，移风易俗社会安定的先锋。</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="swiper-slide page4">
+                <p>
+                    我们没有学历<br>
+                    公司都在<strong>聘请</strong>
+                </p>
+                <p>
+                    我们没有颜值<br>
+                    依然人缘<strong>爆表</strong>
+                </p>
+                <h2>自信人生</h2>
+                <table cellpadding="10" rules="all" cellpadding="10" border="2px solid #000" valign="center">
+                    <caption>快乐生活</caption>
+                    <tr>
+                        <td>身体</td>
+                        <td>家庭</td>
+                        <td>邻里</td>
+                    </tr>
+                    <tr>
+                        <td>健康</td>
+                        <td>幸福</td>
+                        <td>和谐</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="swiper-slide page5">
+                <div class="imgBox">
+                    <img src="img/zf_style1.jpg" alt="">
+                    <img src="img/zf_style2.jpg" alt="">
+                    <img src="img/zf_style3.jpg" alt="">
+                </div>
+                <div class="tip">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="swiper-slide page6">
+                <h2>
+                    <span>联系我们</span>
+                    <a href="">contat us</a>
+                </h2>
+                <ul>
+                    <li>
+                        <div class="icon"></div>
+                        <div class="concatBox">
+                            <spa>QQ:</spa>
+                            9879799<br>
+                            <span>TEL:</span>9897979<br>
+                            <span>Email:</span>978687@qq.com
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon"></div>
+                        <div class="concatBox">
+                            <spa>地址:</spa><br>北京市海淀区五道口，清华大学。
+
+                        </div>
+                    </li>
+                </ul>
+                <img src="img/zf_concatInfo.png" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+<script src="js/zepto.min.js"></script>
+<script src="js/queryURLParameter.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/makisu.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

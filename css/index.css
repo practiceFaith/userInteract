@@ -1,0 +1,892 @@
+html {
+    font-size: 100px; /*100px相当于1rem*/
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    position: relative;
+    z-index: -3;
+}
+
+.loading, .phone, .message, .cube, .swiper {
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.loading {
+    background: #000;
+}
+
+.loading .title {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 1.4rem;
+    margin-top: -2.2rem;
+    text-align: center;
+    color: #fff;
+    letter-spacing: .04rem;
+}
+
+.loading .title h1 {
+    height: .75rem;
+    line-height: .75rem;
+    font-size: .5rem;
+    margin-bottom: .2rem;
+}
+
+.loading .title h3 {
+    height: .45rem;
+    line-height: .45rem;
+    font-size: .26rem;
+}
+
+.loading .progress {
+    position: absolute;
+    width: 4.6rem;
+    height: .3rem;
+    background: #fff;
+    top: 50%;
+    left: 50%;
+    margin: .85rem 0 0 -2.3rem;
+    -webkit-border-radius: .06rem;
+    border-radius: .06rem;
+}
+
+.loading .progress em {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: -webkit-linear-gradient(45deg, green 25%, blue 25%, blue 50%, green 50%, green 75%, blue 75%);
+    background: linear-gradient(45deg, green 25%, blue 25%, blue 50%, green 50%, green 75%, blue 75%);
+    background-size: .3rem .3rem;
+    -webkit-border-radius: .06rem;
+    border-radius: .06rem;
+    -webkit-animation: loadingMove 1s linear infinite both;
+    animation: loadingMove 1s linear infinite both;
+    -webkit-transition: all 1s linear;
+    transition: all 1s linear;
+}
+
+.phone {
+    background: url("../img/zf_phoneBg.jpg") no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    z-index: -2;
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+
+.phone h2 {
+    position: absolute;
+    width: 2.62rem;
+    height: 1.25rem;
+    top: .5rem;
+    left: 50%;
+    margin-left: -1.31rem;
+}
+
+.phone h2 img {
+    width: 100%;
+    height: 100%;
+}
+
+.phone .time {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: .3rem;
+    line-height: .3rem;
+    top: 1.85rem;
+    left: 0;
+    text-align: center;
+    letter-spacing: .05rem;
+    font-size: .3rem;
+    color: #fff;
+}
+
+.phone .listenBox {
+    position: absolute;
+    width: 5.2rem;
+    height: 3.6rem;
+    bottom: .3rem;
+    left: 50%;
+    margin-left: -2.6rem;
+    background: url("../img/zf_phoneListen.png") no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.phone .listenBox div {
+    position: absolute;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 1.6rem;
+    height: 1.6rem;
+    bottom: 0.47rem;
+    right: -.06rem;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.phone .listenBox div.move {
+    border: .03rem solid #0F0;
+    -webkit-animation: listenMove 1s linear infinite both;
+    animation: listenMove 1s linear infinite both;
+    z-index: -1;
+}
+
+.phone .hangupBox {
+    position: absolute;
+    width: 5.2rem;
+    height: 6.59rem;
+    bottom: .3rem;
+    left: 50%;
+    margin-left: -2.6rem;
+    background: url("../img/zf_phoneDetail.png") no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    -webkit-transform: translateY(6.9rem);
+    transform: translateY(6.9rem);
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+.phone .hangupBox .hangup {
+    position: absolute;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 1.6rem;
+    height: 1.6rem;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    bottom: .28rem;
+    left: 50%;
+    margin-left: -.8rem;
+    z-index: 10;
+}
+
+.phone audio {
+    display: none;
+}
+
+.message {
+    opacity: 1;
+    background: #EAEAEA;
+    -webkit-transition: all .6s;
+    transition: all .6s;
+}
+
+.message .messageList {
+    margin-top: .2rem;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+
+.message .messageList li {
+    position: relative;
+    max-width: 3.6rem;
+    padding: .25rem;
+    margin-bottom: .4rem;
+    font-size: .26rem;
+    border-radius: .1rem;
+    line-height: .4rem;
+    -webkit-transform: translateY(1rem);
+    transform: translateY(1rem);
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    opacity: 0;
+}
+
+.message .messageList li.teacher {
+    float: right;
+    margin-right: 1.25rem;
+    background: #A2E45C;
+    border: .02rem solid #96b474;
+}
+
+.message .messageList li.student {
+    float: left;
+    margin-left: 1.25rem;
+    background: #FFF;
+    border: .02rem solid #CACACA;
+}
+
+.message .messageList li em {
+    position: absolute;
+    top: .2rem;
+    width: .1rem;
+    height: .2rem;
+}
+
+.message .messageList li img {
+    position: absolute;
+    top: 0;
+    width: .82rem;
+    height: .82rem;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.message .messageList li.student em {
+    left: -.1rem;
+    background: url("../img/zf_messageArrow1.png") no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.message .messageList li.teacher em {
+    right: -.1rem;
+    background: url("../img/zf_messageArrow2.png") no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.message .messageList li.student img {
+    left: -1rem;
+}
+
+.message .messageList li.teacher img {
+    right: -1rem;
+}
+
+.message .keyboad {
+    position: absolute;
+    width: 100%;
+    height: 5.16rem;
+    left: 0;
+    bottom: -.54rem;
+    background: url("../img/zf_messageKeyboard.png") no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    -webkit-transform: translateY(3.7rem);
+    transform: translateY(3.7rem);
+    transition: all .3s;
+}
+
+.message .keyboad .textBox {
+    display: none;
+    position: absolute;
+    width: 4rem;
+    height: .4rem;
+    line-height: .4rem;
+    top: .35rem;
+    left: .9rem;
+    font-size: .26rem;
+}
+
+.message .keyboad .send {
+    display: none;
+    position: absolute;
+    width: 1.47rem;
+    height: .74rem;
+    bottom: .6rem;
+    right: .1rem;
+    background: url("../img/zf_messageChat.png") no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.message audio {
+    display: none;
+}
+
+.cube {
+    background: url("../img/zf_cubeBg.jpg") no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    perspective: 1000px;
+}
+
+.cube .tip {
+    position: absolute;
+    width: 3.94rem;
+    height: .44rem;
+    left: 50%;
+    bottom: .5rem;
+    margin-left: -1.97rem;
+    background: url("../img/zf_cubeTip.png") no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.cube .cubeBox {
+    position: absolute;
+    width: 5.1rem;
+    height: 5.1rem;
+    top: 50%;
+    left: 50%;
+    margin: -2.55rem 0 0 -2.55rem;
+    transform-style: preserve-3d;
+    transform: scale(0.6) rotateX(-35deg) rotateY(43deg);
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+
+.cube .cubeBox li {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    margin: -2.55rem 0 0 -2.55rem;
+}
+
+.cube .cubeBox li:nth-child(1) {
+    background: url("../img/zf_cube1.png");
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    -webkit-transform: translateZ(-2.55rem);
+    transform: translateZ(-2.55rem);
+}
+
+.cube .cubeBox li:nth-child(2) {
+    background: url("../img/zf_cube5.png");
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    -webkit-transform: rotateY(90deg) translateZ(2.55rem);
+    transform: rotateY(90deg) translateZ(2.55rem);
+}
+
+.cube .cubeBox li:nth-child(3) {
+    background: url("../img/zf_cube2.png");
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    -webkit-transform: rotateY(-90deg) translateZ(2.55rem);
+    transform: rotateY(-90deg) translateZ(2.55rem);
+}
+
+.cube .cubeBox li:nth-child(4) {
+    background: url("../img/zf_cube4.png");
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    -webkit-transform: rotateX(90deg) translateZ(2.55rem);
+    transform: rotateX(90deg) translateZ(2.55rem);
+}
+
+.cube .cubeBox li:nth-child(5) {
+    background: url("../img/zf_cube3.png");
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    -webkit-transform: rotateX(-90deg) translateZ(2.55rem);
+    transform: rotateX(-90deg) translateZ(2.55rem);
+}
+
+.cube .cubeBox li:nth-child(6) {
+    background: url("../img/zf_cube6.png");
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    -webkit-transform: translateZ(2.55rem);
+    transform: translateZ(2.55rem);
+}
+
+.swiper .return {
+    position: absolute;
+    top: .2rem;
+    right: .2rem;
+    z-index: 1000;
+    width: .64rem;
+    height: .75rem;
+    background: url("../img/zf_return.png") no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+
+.swiper-container, .swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    font-family: "Microsoft JhengHei";
+}
+
+.page1 {
+    /*background: #fff;*/
+}
+
+.page1 dl {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5.4rem;
+    height: 7.2rem;
+    z-index: 100;
+    margin: -3.6rem 0 0 -2.7rem;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.page1 dt, .page1 dd {
+    height: .6rem;
+    line-height: .6rem;
+    background: #8FBB4C;
+}
+
+.page1 dt {
+    text-align: center;
+    font-size: .4rem;
+    color: yellow;
+}
+
+.page1 dd {
+    position: relative;
+    padding-left: .64rem;
+    border-top: .02rem dashed rgba(255, 255, 255, .3);
+}
+
+.page1 dd a, .page1 dd em {
+    position: relative;
+    z-index: 1000;
+}
+
+.page1 dd a {
+    color: #000;
+    font-size: .28rem;
+}
+
+.page1 dd em {
+    position: absolute;
+    left: .15rem;
+    top: 50%;
+    margin-top: -.21rem;
+    width: .36rem;
+    height: .42rem;
+    line-height: .42rem;
+    color: #fff;
+    font-size: .2rem;
+    font-style: normal;
+    background: url("../img/zf_outline.png") no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    text-align: center;
+}
+
+.page2 {
+    background: #FFF9C1;
+}
+
+.page2 h2 {
+    position: absolute;
+    width: 100%;
+    height: .9rem;
+    line-height: .9rem;
+    top: .8rem;
+    left: 0;
+    color: #665C50;
+    font-size: .6rem;
+    text-align: center;
+    font-weight: normal;
+    opacity: 0;
+}
+
+.page2 .courseBox {
+    position: absolute;
+    width: 5.12rem;
+    height: 5.8rem;
+    top: 50%;
+    left: 50%;
+    margin: -2.4rem 0 0 -2.56rem
+}
+
+.page2 .courseBox img {
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    top: 50%;
+    left: 50%;
+    margin: -.5rem 0 0 -.5rem;
+    opacity: 0;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+}
+
+.page2 .courseBox img:nth-child(1) {
+    width: 1.32rem;
+    height: 1.7rem;
+    margin: -.85rem 0 0 -.66rem;
+}
+
+#page2 h2 {
+    -webkit-animation: bounceInLeft 1s both;
+    animation: bounceInLeft 1s both;
+}
+
+#page2 .courseBox img:nth-child(1) {
+    -webkit-animation: shake 1s both;
+    animation: shake 1s both;
+}
+
+#page2 .courseBox img:nth-child(2) {
+    -wibkit-animation: page2Move2 1s both, page2Shake 1s infinite both;
+    animation: page2Move2 1s 1s both, page2Shake 1s 1s infinite both;
+}
+
+#page2 .courseBox img:nth-child(3) {
+    -wibkit-animation: page2Move3 1s both, page2Shake 1s infinite both;
+    animation: page2Move3 1s 1s both, page2Shake 1s 1s infinite both;
+}
+
+#page2 .courseBox img:nth-child(4) {
+    -wibkit-animation: page2Move4 1s both, page2Shake 1s infinite both;
+    animation: page2Move4 1s 1s both, page2Shake 1s 1s infinite both;
+}
+
+#page2 .courseBox img:nth-child(5) {
+    -wibkit-animation: page2Move5 1s both, page2Shake 1s infinite both;
+    animation: page2Move5 1s 1s both, page2Shake 1s 1s infinite both;
+}
+
+#page2 .courseBox img:nth-child(6) {
+    -wibkit-animation: page2Move6 1s both, page2Shake 1s infinite both;
+    animation: page2Move6 1s 1s both, page2Shake 1s 1s infinite both;
+}
+
+#page2 .courseBox img:nth-child(7) {
+    -wibkit-animation: page2Move7 1s both, page2Shake 1s infinite both;
+    animation: page2Move7 1s 1s both, page2Shake 1s 1s infinite both;
+}
+
+.page3 {
+    background: #E45455;
+}
+
+.page3 h2 {
+    position: absolute;
+    width: 3.82rem;
+    height: 1.41rem;
+    top: .5rem;
+    left: 50%;
+    margin-left: -1.91rem;
+    opacity: 0;
+}
+
+.page3 h2 img {
+    width: 100%;
+    height: 100%;
+}
+
+.page3 .teacherBox {
+    position: absolute;
+    width: 5.7rem;
+    left: 50%;
+    top: 2.5rem;
+    margin-left: -2.85rem;
+}
+
+.page3 .teacherBox li {
+    float: left;
+    width: 32%;
+    height: 3rem;
+    margin: .2rem 0;
+    color: #FFF9C1;
+    font-size: .24rem;
+}
+
+.page3 .teacherBox li:nth-child(3n+2) {
+    margin: .2rem 2%;
+}
+
+.page3 .teacherBox figure {
+    margin: 0 auto;
+    text-align: center;
+    opacity: 0;
+}
+
+.page3 .teacherBox figure img {
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 50%;
+
+}
+
+.page3 .teacherBox figure figcaption {
+    height: .5rem;
+    line-height: .5rem;
+}
+
+.page3 .teacherBox p {
+    width: 100%;
+    line-height: .32rem;
+    text-align: left;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    opacity: 0;
+}
+#page3 h2{
+    -webkit-animation:bounceInDown 1s both;
+    animation:bounceInDown 1s both;
+}
+#page3 .teacherBox li:nth-child(1) figure{
+    -webkit-animation: bounceIn 1s both;
+    animation: bounceIn 1s both;
+}
+#page3 .teacherBox li:nth-child(2) figure{
+    -webkit-animation: bounceIn 1s .2s both;
+    animation: bounceIn 1s .2s both;
+}
+#page3 .teacherBox li:nth-child(3) figure{
+    -webkit-animation: bounceIn 1s .4s both;
+    animation: bounceIn 1s .4s both;
+}
+#page3 .teacherBox li:nth-child(4) figure{
+    -webkit-animation: bounceIn 1s .6s both;
+    animation: bounceIn 1s .6s both;
+}
+#page3 .teacherBox li:nth-child(5) figure{
+    -webkit-animation: bounceIn 1s .8s both;
+    animation: bounceIn 1s .8s both;
+}
+#page3 .teacherBox li:nth-child(6) figure{
+    -webkit-animation: bounceIn 1s 1s both;
+    animation: bounceIn 1s 1s both;
+}
+#page3 .teacherBox li p{
+    -webkit-animation: fadeIn 1s both;
+    animation: fadeIn 1s both;
+}
+.page4{
+    background: #FAC471;
+}
+.page4 p{
+    position: absolute;
+    left: .64rem;
+    font-size: .32rem;
+    line-height: .6rem;
+    opacity: 0;
+}
+.page4 p:nth-child(1){
+    width: 3.92rem;
+    top: .5rem;
+}
+.page4 p:nth-child(2){
+    width: 5.5rem;
+    top: 2.2rem;
+}
+.page4 p strong{
+    margin-left: .1rem;
+    font-size: .5rem;
+    color:#fff;
+}
+.page4 h2{
+    position: absolute;
+    width: 100%;
+    height: .75rem;
+    line-height: .75rem;
+    top: 3.8rem;
+    left: 0;
+    color:green;
+    font-size: .5rem;
+    text-align: center;
+    opacity: 0;
+}
+.page4 table{
+    position: absolute;
+    background: gray;
+    width: 4.8rem;
+    height: 3.8rem;
+    top: 5rem;
+    left: 50%;
+    margin-left: -2.4rem;
+    padding: .1rem;
+    color: #fff;
+    text-align: center;
+    border: .03rem solid #000;
+    opacity: 0;
+}
+.page4 table caption{
+    font-size: .5rem;
+    margin-bottom: .2rem;
+}
+#page4 p:nth-child(1){
+    -webkit-animation: bounceInLeft 1s both;
+    animation: bounceInLeft 1s both;
+}
+#page4 p:nth-child(2){
+    -webkit-animation: bounceInRight 1s .5s both;
+    animation: bounceInRight 1s .5s both;
+}
+#page4 h2{
+    -webkit-animation: bounceInDown 1s both;
+    animation: bounceInDown 1s both;
+}
+#page4 table{
+    -webkit-animation: bounceInUp 1s .3s both;
+    animation: bounceInUp 1s .3s both;
+}
+.page5{
+    background: #F8FFEB;
+}
+.page5 .imgBox img{
+    position: absolute;
+    width: 5rem;
+    height: 3.3rem;
+    border:.07rem solid #fff;
+    opacity: 0;
+}
+.page5 .imgBox img:nth-child(1){
+    top:8%;
+}
+.page5 .imgBox img:nth-child(2){
+    top:25%;
+}
+.page5 .imgBox img:nth-child(3){
+    top:44%;
+}
+.page5 .tip {
+    position: absolute;
+    width: 100%;
+    height: 1.4rem;
+    bottom: .5rem;
+}
+.page5 .tip span{
+    opacity: 0;
+}
+.page5 .tip span:nth-child(1){
+    position: absolute;
+    width: 3.76rem;
+    height: .82rem;
+    top: 0;
+    left: 1rem;
+    background: url("../img/zf_styleTip1.png") no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+.page5 .tip span:nth-child(2){
+    position: absolute;
+    width: 3.22rem;
+    height: .38rem;
+    right: 1rem;
+    bottom: 0;
+    background: url("../img/zf_styleTip2.png") no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+#page5 .imgBox img:nth-child(1){
+    -webkit-animation: page5Move1 1s both;
+    animation: page5Move1 1s both;
+}
+#page5 .imgBox img:nth-child(2){
+    -webkit-animation: page5Move2 1s .3s both;
+    animation: page5Move2 1s .3s both;
+}
+#page5 .imgBox img:nth-child(3){
+    -webkit-animation: page5Move3 1s .6s both;
+    animation: page5Move3 1s .6s both;
+}
+#page5 .tip span:nth-child(1){
+    -webkit-animation: bounceInLeft 1s both;
+    animation: bounceInLeft 1s both;
+}
+#page5 .tip span:nth-child(2){
+    -webkit-animation: bounceInRight 1s .3s both;
+    animation: bounceInRight 1s .3s both;
+}
+.page6{
+    background: #5975FF;
+}
+.page6 h2{
+    position: absolute;
+    width: 5rem;
+    height: 1rem;
+    top: 0%;
+    left: 50%;
+    margin-left:-2.5rem;
+    color: #fff;
+    padding: .3rem 0;
+    border-bottom:.02rem solid rgba(255,255,255,.5);
+    opacity: 0;
+}
+.page6 h2 span{
+    display: block;
+    height: .64rem;
+    line-height: .64rem;
+    font-size: .44rem;
+}
+.page6 h2 a{
+    display: block;
+    height: .35rem;
+    line-height: .35rem;
+    font-size: .24rem;
+    color:#fff;
+}
+.page6 ul{
+    position: absolute;
+    width: 5rem;
+    top:2rem;
+    left: 50%;
+    margin-left: -2.5rem;
+}
+.page6 ul li{
+    width: 100%;
+    height: 1.6rem;
+    margin-bottom: .4rem;
+    opacity: 0;
+}
+.page6 ul li .icon{
+    float: left;
+    width: .98rem;
+    height: .98rem;
+    margin-top: .31rem;
+}
+.page6 ul li:nth-child(1) .icon{
+    background: url("../img/zf_concatPhone.png") no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+.page6 ul li:nth-child(2) .icon{
+    background: url("../img/zf_concatAddress.png") no-repeat;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+.page6 ul li .concatBox{
+    float: right;
+    width: 3.18rem;
+    height: 1.2rem;
+    padding: .2rem;
+    background: rgba(255,255,255,0.9);
+    color: rgb(35,163,211);
+    font-size: .24rem;
+}
+.page6 ul .concatBox span{
+    display: inline-block;
+    font-size: .28rem;
+    min-width: .7rem;
+    vertical-align: bottom;
+}
+.page6 img{
+    position: absolute;
+    width: 5rem;
+    height: 3.6rem;
+    top: 6rem;
+    left: 50%;
+    margin-left: -2.5rem;
+    opacity: 0;
+}
+#page6 h2{
+    -webkit-animation: bounceInDown 1s both;
+    animation: bounceInDown 1s both;
+}
+#page6 ul li:nth-child(1){
+    -webkit-animation: zoomIn 1s both;
+    animation: zoomIn 1s both;
+}
+#page6 ul li:nth-child(2){
+    -webkit-animation: zoomIn 1s .5s both;
+    animation: zoomIn 1s .5s both;
+}
+#page6 img{
+    -webkit-animation: bounceInUp 1s 1s both;
+    animation: bounceInUp 1s 1s both;
+}
+
+
